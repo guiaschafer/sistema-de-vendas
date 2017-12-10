@@ -1,0 +1,24 @@
+﻿@{
+    ViewBag.Title = "Login";
+
+}
+
+
+<form class="form-signin" action="@Url.Action("Index")" method="post">
+
+    @Html.AntiForgeryToken()
+
+    @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+
+    <div class="text-center">
+        <h2 class="form-signin-heading">AGENDAMENTOS</h2>
+    </div>
+
+    <label for="matricula" class="sr-only">Login</label>
+    <input type="text" id="Login" name="Login" class="form-control" placeholder="Login" required autofocus>
+    <br />
+    <label for="inputPassword" class="sr-only">Password</label>
+    <input type="password" id="Senha" name="Senha" class="form-control" placeholder="Senha" required>
+
+    <button class="btn btn-lg btn-primary btn-block" style="width: 100px" type="submit">Entrar</button>
+</form>

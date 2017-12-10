@@ -1,0 +1,54 @@
+﻿@model SistemaDeVendas.Aplicacao.Dto.UsuarioDto
+@{
+    ViewBag.Title = "Cadastrar";
+}
+
+<h2>Cadastrar</h2>
+
+@using (Html.BeginForm("Cadastrar", "Login", FormMethod.Post))
+{
+
+    <div class="row">
+        <div class="form-group col-xs-12 col-md-6">
+            <label class="control-label">Nome *</label>
+
+            @Html.EditorFor(model => model.Nome, new {htmlAttributes = new {@class = "form-control", @maxlength = "100"}})
+            @Html.ValidationMessageFor(model => model.Nome, "", new {@class = "text-danger"})
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="form-group col-xs-12 col-md-6">
+            <label class="control-label">Login *</label>
+            @Html.EditorFor(model => model.Login, new {htmlAttributes = new {@class = "form-control", @maxlength = "100"}})
+            @Html.ValidationMessageFor(model => model.Login, "", new {@class = "text-danger"})
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="form-group col-xs-12 col-md-6">
+            <label class="control-label">Senha *</label>
+            @Html.PasswordFor(model => model.Senha, new {@class = "form-control ", @maxlength = "100"})
+            @Html.ValidationMessageFor(model => model.Login, "", new {@class = "text-danger"})
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="form-group col-xs-12 col-md-6">
+            <label class="control-label">Confirmar Senha *</label>
+            @Html.PasswordFor(model => model.ConfirmarSenha, new {@class = "form-control", @maxlength = "100"})
+            @Html.ValidationMessageFor(model => model.ConfirmarSenha, "", new {@class = "text-danger"})
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="pull-right col-xs-12 col-sm-4">
+            <br/>
+            <label class="d-block hidden-xs col-sm-8">&nbsp;</label>
+            <button type="submit" class="btn btn-success col-xs-12 col-sm-4" style="vertical-align: bottom">
+                <span class="glyphicon glyphicon-ok"></span>&nbsp;Salvar
+            </button>
+        </div> <!-- Botão de ação -->
+    </div>
+}
