@@ -7,13 +7,13 @@ namespace SistemaDeVendas.Aplicacao.Infraestrutura
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class NovasEntidades : IMigrationMetadata
+    public sealed partial class Inicial : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(NovasEntidades));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(Inicial));
         
         string IMigrationMetadata.Id
         {
-            get { return "201712052233564_NovasEntidades"; }
+            get { return "201712112059287_Inicial"; }
         }
         
         string IMigrationMetadata.Source

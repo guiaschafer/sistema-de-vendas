@@ -92,26 +92,28 @@
     <Compile Include="Dto\AutenticacaoDto.cs" />
     <Compile Include="Dto\PerfilDto.cs" />
     <Compile Include="Dto\UsuarioDto.cs" />
+    <Compile Include="Entidades\Cliente.cs" />
     <Compile Include="Entidades\Enum\PerfilUsuario.cs" />
+    <Compile Include="Entidades\ItemPedido.cs" />
+    <Compile Include="Entidades\Pedido.cs" />
     <Compile Include="Entidades\Perfil.cs" />
+    <Compile Include="Entidades\Produto.cs" />
     <Compile Include="Entidades\Usuario.cs" />
     <Compile Include="Infraestrutura\Configuration.cs" />
     <Compile Include="Infraestrutura\Contexto.cs" />
     <Compile Include="Infraestrutura\Inicializador.cs" />
     <Compile Include="Infraestrutura\Mapeamentos\UsuarioMap.cs" />
-    <Compile Include="Infraestrutura\Migrations\201712042127473_inicial.cs" />
-    <Compile Include="Infraestrutura\Migrations\201712042127473_inicial.Designer.cs">
-      <DependentUpon>201712042127473_inicial.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Infraestrutura\Migrations\201712052233564_NovasEntidades.cs" />
-    <Compile Include="Infraestrutura\Migrations\201712052233564_NovasEntidades.Designer.cs">
-      <DependentUpon>201712052233564_NovasEntidades.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Infraestrutura\Migrations\201712052257564_SaltUsuario.cs" />
-    <Compile Include="Infraestrutura\Migrations\201712052257564_SaltUsuario.Designer.cs">
-      <DependentUpon>201712052257564_SaltUsuario.cs</DependentUpon>
+    <Compile Include="Infraestrutura\Migrations\201712112059287_Inicial.cs" />
+    <Compile Include="Infraestrutura\Migrations\201712112059287_Inicial.Designer.cs">
+      <DependentUpon>201712112059287_Inicial.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Seguranca\Claims.cs" />
+    <Compile Include="Seguranca\Identidade.cs" />
+    <Compile Include="Seguranca\Principal.cs" />
+    <Compile Include="Seguranca\Senha.cs" />
+    <Compile Include="Seguranca\Token.cs" />
+    <Compile Include="Seguranca\UsuarioFornecedorAuthenticado.cs" />
     <Compile Include="Servicos\ServicoAutenticacao.cs" />
     <Compile Include="Servicos\ServicoUsuario.cs" />
     <Compile Include="Util\Utils.cs" />
@@ -122,14 +124,8 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <EmbeddedResource Include="Infraestrutura\Migrations\201712042127473_inicial.resx">
-      <DependentUpon>201712042127473_inicial.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Infraestrutura\Migrations\201712052233564_NovasEntidades.resx">
-      <DependentUpon>201712052233564_NovasEntidades.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Infraestrutura\Migrations\201712052257564_SaltUsuario.resx">
-      <DependentUpon>201712052257564_SaltUsuario.cs</DependentUpon>
+    <EmbeddedResource Include="Infraestrutura\Migrations\201712112059287_Inicial.resx">
+      <DependentUpon>201712112059287_Inicial.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

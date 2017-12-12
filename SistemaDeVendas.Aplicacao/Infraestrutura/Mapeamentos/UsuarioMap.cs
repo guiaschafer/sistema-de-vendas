@@ -12,7 +12,7 @@ namespace SistemaDeVendas.Aplicacao.Infraestrutura.Mapeamentos
     {
         public UsuarioMap()
         {
-            ToTable("Usuario");
+            ToTable("USUARIO");
         }
     }
 }
