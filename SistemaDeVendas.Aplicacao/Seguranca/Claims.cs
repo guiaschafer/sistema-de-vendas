@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Jequiti.Infra.Seguranca
+namespace SistemaDeVendas.Aplicacao.Seguranca
 {
     public static class Claims
     {

@@ -1,5 +1,4 @@
-﻿using Jequiti.Aplicacao.Properties;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens;
 using System.Linq;
@@ -7,7 +6,7 @@ using System.Security.Claims;
 using System.ServiceModel.Security.Tokens;
 using System.Text;
 
-namespace Jequiti.Infra.Seguranca
+namespace SistemaDeVendas.Aplicacao.Seguranca
 {
     public class Token
     {
@@ -151,10 +150,17 @@ namespace Jequiti.Infra.Seguranca
             return handler.WriteToken(jwtToken);
         }
 
+        private string RandomString(int length)
+        {
+            Random random = new Random();
+            const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+            return new string(Enumerable.Repeat(chars, length)
+                .Select(s => s[random.Next(s.Length)]).ToArray());
+        }
         private byte[] GerarChaveAssinatura()
         {
             //TODO: Temporário!! Utilizar uma chave RSA
-            return Encoding.Unicode.GetBytes(Resources.ChaveAssinaturaToken);
+            return Encoding.Unicode.GetBytes(RandomString(20));
         }
 
         private SigningCredentials GerarAssinatura()

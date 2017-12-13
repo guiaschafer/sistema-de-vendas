@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Jequiti.Aplicacao.Infra.Seguranca
+namespace SistemaDeVendas.Aplicacao.Seguranca
 {
     public static class Senha
     {

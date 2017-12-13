@@ -1,11 +1,11 @@
-﻿using Jequiti.Dominio.Enums;
-using Jequiti.Aplicacao.Infra.Extensions;
-using System;
+﻿using System;
 using System.Linq;
 using System.Security.Claims;
 using System.Security.Principal;
+using SistemaDeVendas.Aplicacao.Entidades.Enum;
+using SistemaDeVendas.Aplicacao.Util;
 
-namespace Jequiti.Aplicacao.Infra.Seguranca
+namespace SistemaDeVendas.Aplicacao.Seguranca
 {
     public class Principal : IPrincipal
     {

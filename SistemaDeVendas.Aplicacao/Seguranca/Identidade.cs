@@ -1,12 +1,9 @@
-﻿using Jequiti.Infra.Seguranca;
+﻿
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Security.Principal;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Jequiti.Aplicacao.Infra.Seguranca
+namespace SistemaDeVendas.Aplicacao.Seguranca
 {
     public class Identidade : IIdentity
     {
