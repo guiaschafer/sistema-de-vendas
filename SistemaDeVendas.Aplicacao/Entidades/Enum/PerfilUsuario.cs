@@ -6,8 +6,11 @@ namespace SistemaDeVendas.Aplicacao.Entidades.Enum
     {
         [Description("Administrador")]
         Administrador = 0,
-
-        [Description("Usuário")]
-        Usuario = 1
+        [Description("Cliente")]
+        Cliente = 1,
+        [Description("Gerente")]
+        Gerente = 2,
+        [Description("Vendedor")]
+        Vendedor = 3,
     }
 }

@@ -1,12 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using SistemaDeVendas.Aplicacao.Dto;
+using SistemaDeVendas.Aplicacao.Entidades.Enum;
+using SistemaDeVendas.Portal.Util;
 using System.Web.Mvc;
-using SistemaDeVendas.Aplicacao.Dto;
 
 namespace SistemaDeVendas.Portal.Controllers
 {
+    [Autorizar(Perfis = PerfilUsuario.Cliente)]
     public class HomeController : Controller
     {
         public ActionResult Index(UsuarioDto usuario)

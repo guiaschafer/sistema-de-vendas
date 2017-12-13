@@ -29,7 +29,7 @@ namespace SistemaDeVendas.Aplicacao.Servicos
             usuario.Senha = Utils.GenerateSHA512String(usuario.Senha + usuario.Salt);
             usuario.Perfis = new List<Perfil>()
             {
-                contexo.Perfis.Where(x => x.Tipo == PerfilUsuario.Usuario).FirstOrDefault()
+                contexo.Perfis.Where(x => x.Tipo == PerfilUsuario.Cliente).FirstOrDefault()
             };
             contexo.Usuarios.Add(usuario);
             contexo.SaveChanges();

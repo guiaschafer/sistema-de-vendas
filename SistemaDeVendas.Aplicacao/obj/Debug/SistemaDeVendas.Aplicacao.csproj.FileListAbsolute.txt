@@ -90,3 +90,5 @@ C:\Users\guilherme.schafer\Documents\sistema-de-vendas\SistemaDeVendas.Aplicacao
 C:\Users\guilherme.schafer\Documents\sistema-de-vendas\SistemaDeVendas.Aplicacao\bin\Debug\System.IdentityModel.Tokens.Jwt.xml
 C:\Users\guilherme.schafer\Documents\sistema-de-vendas\SistemaDeVendas.Aplicacao\obj\Debug\SistemaDeVendas.Aplicacao.dll
 C:\Users\guilherme.schafer\Documents\sistema-de-vendas\SistemaDeVendas.Aplicacao\obj\Debug\SistemaDeVendas.Aplicacao.pdb
+C:\Users\guilherme.schafer\Documents\sistema-de-vendas\SistemaDeVendas.Aplicacao\obj\Debug\SistemaDeVendas.Aplicacao.csprojResolveAssemblyReference.cache
+C:\Users\guilherme.schafer\Documents\sistema-de-vendas\SistemaDeVendas.Aplicacao\obj\Debug\SistemaDeVendas.Aplicacao.Properties.Resources.resources

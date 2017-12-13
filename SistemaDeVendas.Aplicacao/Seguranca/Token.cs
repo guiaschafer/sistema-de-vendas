@@ -5,6 +5,7 @@ using System.Linq;
 using System.Security.Claims;
 using System.ServiceModel.Security.Tokens;
 using System.Text;
+using SistemaDeVendas.Aplicacao.Properties;
 
 namespace SistemaDeVendas.Aplicacao.Seguranca
 {
@@ -160,7 +161,7 @@ namespace SistemaDeVendas.Aplicacao.Seguranca
         private byte[] GerarChaveAssinatura()
         {
             //TODO: Temporário!! Utilizar uma chave RSA
-            return Encoding.Unicode.GetBytes(RandomString(20));
+            return Encoding.Unicode.GetBytes(Resources.ChaveAssinaturaToken);
         }
 
         private SigningCredentials GerarAssinatura()

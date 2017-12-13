@@ -40,9 +40,14 @@ namespace SistemaDeVendas.Portal.Controllers
         {
             var retorno = _servicoAutenticacao.Autenticar(model);
 
+            if (retorno != null)
+            {
+                var cookie = _servicoAutenticacao.GerarCookieComToken(retorno);
+                Response.Cookies.Add(cookie);
+                return RedirectToAction("Index", "Home", retorno);
+            }
 
-
-            return RedirectToAction("Index","Home",retorno);
+            return View();
         }
     }
 }
