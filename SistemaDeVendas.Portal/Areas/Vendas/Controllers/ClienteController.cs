@@ -22,16 +22,21 @@ namespace SistemaDeVendas.Portal.Areas.Vendas.Controllers
         }
         // GET: Vendas/Cliente
 
+        [Autorizar(Perfis = PerfilUsuario.Vendedor | PerfilUsuario.Gerente)]
+
         public ActionResult Index()
         {
             var clientes = _servicoCliente.ObterTodos();
             return View(clientes);
         }
 
+        [Autorizar]
         public ActionResult Cadastrar()
         {
             return View();
         }
+
+        [Autorizar(Perfis = PerfilUsuario.Cliente)]
 
         public ActionResult Detalhes()
         {
@@ -39,6 +44,7 @@ namespace SistemaDeVendas.Portal.Areas.Vendas.Controllers
 
             return View(cliente);
         }
+        [Autorizar]
 
         [HttpPost]
         public ActionResult Cadastrar(ClienteDto model)
@@ -48,12 +54,12 @@ namespace SistemaDeVendas.Portal.Areas.Vendas.Controllers
             return View();
         }
 
-       
+        [Autorizar]
         public ActionResult Atualizar(int id)
-        {            
-            var cliente = _servicoCliente.ObterCliente(id);      
-            
-            if(cliente == null)
+        {
+            var cliente = _servicoCliente.ObterCliente(id);
+
+            if (cliente == null)
             {
                 return View("Index");
             }

@@ -32,8 +32,8 @@
                     {
                         <li>@Html.ActionLink("Produto", "Index", "Produto")</li>
                     }
-                    @if (!User.IsInRole(PerfilUsuario.Cliente))
-                    {
+                  @if (User.IsInRole(PerfilUsuario.Administrador | PerfilUsuario.Gerente | PerfilUsuario.Vendedor))
+                  {
                         <li>@Html.ActionLink("Usuario", "Index", "Usuario")</li>
                     }
                 </ul>

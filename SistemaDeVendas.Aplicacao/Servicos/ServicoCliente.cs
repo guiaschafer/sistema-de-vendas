@@ -60,13 +60,9 @@ namespace SistemaDeVendas.Aplicacao.Servicos
 
             if (cliente != null)
             {
-                var chavePrivada = ChaveAssimetrica.GetKeyPrivateFromContainer(cliente.Cpf);
 
                 var clienteDto = Mapper.Map<Cliente, ClienteDto>(cliente);
-
-                clienteDto.NumeroCartao = Encoding.Unicode.GetString(ChaveAssimetrica.RSADecrypt(cliente.NumeroCartao, chavePrivada));
-                clienteDto.CodigoSeguranca = Encoding.Unicode.GetString(ChaveAssimetrica.RSADecrypt(cliente.CodigoSeguranca, chavePrivada));
-
+                
                 return clienteDto;
             }
 

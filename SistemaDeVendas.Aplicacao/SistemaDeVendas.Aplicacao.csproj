@@ -124,6 +124,10 @@
     <Compile Include="Infraestrutura\Migrations\201712180238599_Inicial.Designer.cs">
       <DependentUpon>201712180238599_Inicial.cs</DependentUpon>
     </Compile>
+    <Compile Include="Infraestrutura\Migrations\201712181727272_Novos.cs" />
+    <Compile Include="Infraestrutura\Migrations\201712181727272_Novos.Designer.cs">
+      <DependentUpon>201712181727272_Novos.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -153,6 +157,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Infraestrutura\Migrations\201712180238599_Inicial.resx">
       <DependentUpon>201712180238599_Inicial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Infraestrutura\Migrations\201712181727272_Novos.resx">
+      <DependentUpon>201712181727272_Novos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
