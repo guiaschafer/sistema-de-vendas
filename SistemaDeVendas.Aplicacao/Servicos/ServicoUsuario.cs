@@ -24,6 +24,16 @@ namespace SistemaDeVendas.Aplicacao.Servicos
                 throw new ArgumentException(nameof(usuarioDto));
             }
 
+            //if (Password.VerificarSenha(usuarioDto.Senha) < PasswordScore.Strong)
+            //{
+            //    throw new ArgumentException("Senha muito fraca");
+            //}
+
+            if (Password.IsPasswordStrong(usuarioDto.Senha))
+            {
+                throw new ArgumentException("Senha muito fraca");
+            }
+
             var usuario = Mapper.Map<UsuarioDto, Usuario>(usuarioDto);
             usuario.Salt = Utils.GetSalt();
             usuario.Senha = Utils.GenerateSHA512String(usuario.Senha + usuario.Salt);

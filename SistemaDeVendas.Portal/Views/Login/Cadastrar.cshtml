@@ -6,7 +6,13 @@
 <h2>Cadastrar</h2>
 
 @using (Html.BeginForm("Cadastrar", "Login", FormMethod.Post))
-{
+{ 
+    if (TempData["Erro"] != null)
+   {
+       <div class="form-group">
+           <div class="alert alert-danger" role="alert"><span class="glyphicon glyphicon-exclamation-sign"></span>&nbsp;@TempData["Erro"]</div>
+       </div>
+   }
 
     <div class="row">
         <div class="form-group col-xs-12 col-md-6">

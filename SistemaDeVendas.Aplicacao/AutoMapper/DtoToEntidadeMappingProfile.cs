@@ -4,7 +4,7 @@ using SistemaDeVendas.Aplicacao.Entidades;
 
 namespace SistemaDeVendas.Aplicacao.AutoMapper
 {
-    public class DtoToEntidadeMappingProfile: Profile
+    public class DtoToEntidadeMappingProfile : Profile
     {
         public DtoToEntidadeMappingProfile() : base("ViewModelToDomainMappings")
         {
@@ -14,6 +14,9 @@ namespace SistemaDeVendas.Aplicacao.AutoMapper
         protected override void Configure()
         {
             Mapper.CreateMap<UsuarioDto, Usuario>();
+            Mapper.CreateMap<ClienteDto, Cliente>()
+                .ForMember(c => c.NumeroCartao, op => op.Ignore())
+                .ForMember(c=> c.CodigoSeguranca, op => op.Ignore());
         }
     }
 }

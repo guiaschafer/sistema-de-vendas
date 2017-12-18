@@ -49,7 +49,6 @@ C:\Users\Guilherme\Source\Repos\sistema-de-vendas\SistemaDeVendas.Aplicacao\bin\
 C:\Users\Guilherme\Source\Repos\sistema-de-vendas\SistemaDeVendas.Aplicacao\bin\Debug\SimpleInjector.xml
 C:\Users\Guilherme\Source\Repos\sistema-de-vendas\SistemaDeVendas.Aplicacao\bin\Debug\SimpleInjector.Integration.Web.xml
 C:\Users\Guilherme\Source\Repos\sistema-de-vendas\SistemaDeVendas.Aplicacao\bin\Debug\SimpleInjector.Integration.Web.Mvc.xml
-C:\Users\Guilherme\Source\Repos\sistema-de-vendas\SistemaDeVendas.Aplicacao\obj\Debug\SistemaDeVendas.Aplicacao.csprojResolveAssemblyReference.cache
 C:\Users\Guilherme\Source\Repos\sistema-de-vendas\SistemaDeVendas.Aplicacao\obj\Debug\SistemaDeVendas.Aplicacao.dll
 C:\Users\Guilherme\Source\Repos\sistema-de-vendas\SistemaDeVendas.Aplicacao\obj\Debug\SistemaDeVendas.Aplicacao.pdb
 C:\Users\Guilherme\Source\Repos\sistema-de-vendas\SistemaDeVendas.Aplicacao\obj\Debug\SistemaDeVendas.Aplicacao.csproj.GenerateResource.Cache

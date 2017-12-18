@@ -13,7 +13,7 @@ namespace SistemaDeVendas.Aplicacao.Infraestrutura
         
         string IMigrationMetadata.Id
         {
-            get { return "201712142304546_Inicial"; }
+            get { return "201712180238599_Inicial"; }
         }
         
         string IMigrationMetadata.Source

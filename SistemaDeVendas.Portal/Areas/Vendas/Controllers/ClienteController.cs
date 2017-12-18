@@ -5,17 +5,28 @@ using System.Web;
 using System.Web.Mvc;
 using SistemaDeVendas.Aplicacao.Dto;
 using SistemaDeVendas.Aplicacao.Entidades.Enum;
+using SistemaDeVendas.Aplicacao.Servicos;
 using SistemaDeVendas.Portal.Util;
 
 namespace SistemaDeVendas.Portal.Areas.Vendas.Controllers
 {
-    [Autorizar(Perfis = PerfilUsuario.Cliente)]
+    //[Autorizar(Perfis = PerfilUsuario.Cliente)]
     public class ClienteController : Controller
     {
+        private readonly ServicoCliente _servicoCliente;
+
+        public ClienteController(ServicoCliente servicoCliente)
+        {
+            _servicoCliente = servicoCliente;
+        }
         // GET: Vendas/Cliente
+
         public ActionResult Index()
         {
-            return View();
+
+            var clientes = _servicoCliente.ObterTodos();
+            return View(clientes);
+
         }
 
         public ActionResult Cadastrar()
@@ -23,21 +34,19 @@ namespace SistemaDeVendas.Portal.Areas.Vendas.Controllers
             return View();
         }
 
-        public ActionResult Atualizar()
-        {
-            return View();
-        }
 
         [HttpPost]
         public ActionResult Cadastrar(ClienteDto model)
         {
+            _servicoCliente.Cadastrar(model);
             return View();
         }
 
-        [HttpPost]
-        public ActionResult Atualizar(ClienteDto model)
+       
+        public ActionResult Atualizar(int  id)
         {
-            return View();
+            var cliente = _servicoCliente.ObterCliente(id);
+            return View("Atualizar",cliente);
         }
     }
 }

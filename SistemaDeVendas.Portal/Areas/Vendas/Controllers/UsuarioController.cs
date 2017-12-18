@@ -10,7 +10,7 @@ using SistemaDeVendas.Portal.Util;
 
 namespace SistemaDeVendas.Portal.Areas.Vendas.Controllers
 {
-    [Autorizar(Perfis = PerfilUsuario.Vendedor)]
+    //[Autorizar(Perfis = PerfilUsuario.Vendedor)]
     public class UsuarioController : Controller
     {
         private readonly ServicoUsuario _servicoUsuario;

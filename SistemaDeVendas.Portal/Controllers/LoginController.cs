@@ -1,4 +1,5 @@
-﻿using SistemaDeVendas.Portal.Models;
+﻿using System;
+using SistemaDeVendas.Portal.Models;
 using System.Web.Mvc;
 using System.Web.Security;
 using SistemaDeVendas.Aplicacao.Dto;
@@ -33,7 +34,15 @@ namespace SistemaDeVendas.Portal.Controllers
         [HttpPost]
         public ActionResult Cadastrar(UsuarioDto usuario)
         {
-            _servicoUsuario.Cadastrar(usuario);
+            try
+            {
+                _servicoUsuario.Cadastrar(usuario);
+            }
+            catch (Exception e)
+            {
+                TempData["Erro"] = e.Message;
+                return View("Cadastrar", usuario);
+            }
 
             return View("Index");
         }

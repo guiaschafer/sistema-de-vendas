@@ -120,9 +120,9 @@
     <Compile Include="Infraestrutura\Contexto.cs" />
     <Compile Include="Infraestrutura\Inicializador.cs" />
     <Compile Include="Infraestrutura\Mapeamentos\UsuarioMap.cs" />
-    <Compile Include="Infraestrutura\Migrations\201712142304546_Inicial.cs" />
-    <Compile Include="Infraestrutura\Migrations\201712142304546_Inicial.Designer.cs">
-      <DependentUpon>201712142304546_Inicial.cs</DependentUpon>
+    <Compile Include="Infraestrutura\Migrations\201712180238599_Inicial.cs" />
+    <Compile Include="Infraestrutura\Migrations\201712180238599_Inicial.Designer.cs">
+      <DependentUpon>201712180238599_Inicial.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
@@ -148,8 +148,8 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <EmbeddedResource Include="Infraestrutura\Migrations\201712142304546_Inicial.resx">
-      <DependentUpon>201712142304546_Inicial.cs</DependentUpon>
+    <EmbeddedResource Include="Infraestrutura\Migrations\201712180238599_Inicial.resx">
+      <DependentUpon>201712180238599_Inicial.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

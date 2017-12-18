@@ -157,6 +157,11 @@ namespace SistemaDeVendas.Aplicacao.Util
 
             return (PasswordScore)pontuacao;
         }
+
+        public static bool IsPasswordStrong(string password)
+        {
+            return Regex.IsMatch(password, @"^.*(?=.{7,})(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9]).*$");
+        }
     }
 
     public enum PasswordScore

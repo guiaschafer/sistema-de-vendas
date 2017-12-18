@@ -4,6 +4,7 @@ using SistemaDeVendas.Aplicacao.Entidades;
 using SistemaDeVendas.Aplicacao.Infraestrutura;
 using SistemaDeVendas.Aplicacao.Seguranca;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
@@ -49,12 +50,19 @@ namespace SistemaDeVendas.Aplicacao.Servicos
                 var clienteDto = Mapper.Map<Cliente, ClienteDto>(cliente);
 
                 clienteDto.NumeroCartao = Encoding.Unicode.GetString(ChaveAssimetrica.RSADecrypt(cliente.NumeroCartao, chavePrivada));
-                clienteDto.CodigoSeguranca = Encoding.Unicode.GetString(ChaveAssimetrica.RSADecrypt(cliente.CodigoSeguranca,chavePrivada));
+                clienteDto.CodigoSeguranca = Encoding.Unicode.GetString(ChaveAssimetrica.RSADecrypt(cliente.CodigoSeguranca, chavePrivada));
 
                 return clienteDto;
             }
 
             return null;
+        }
+        public List<ClienteDto> ObterTodos()
+        {
+            var clientes = contexo.Clientes.Where(c => 1 == 1).ToList();
+
+
+            return Mapper.Map<List<Cliente>, List<ClienteDto>>(clientes);
         }
     }
 }

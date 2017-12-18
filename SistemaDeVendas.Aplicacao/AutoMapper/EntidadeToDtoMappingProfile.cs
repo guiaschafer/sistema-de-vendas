@@ -15,6 +15,7 @@ namespace SistemaDeVendas.Aplicacao.AutoMapper
         {
             Mapper.CreateMap<Usuario, UsuarioDto>();
             Mapper.CreateMap<Perfil, PerfilDto>();
+            Mapper.CreateMap<Cliente, ClienteDto>();
 
         }
     }

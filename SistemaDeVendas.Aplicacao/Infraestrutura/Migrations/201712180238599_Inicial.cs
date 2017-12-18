@@ -16,6 +16,8 @@ namespace SistemaDeVendas.Aplicacao.Infraestrutura
                         Sobrenome = c.String(),
                         Cpf = c.String(),
                         Telefone = c.String(),
+                        NumeroCartao = c.Binary(),
+                        CodigoSeguranca = c.Binary(),
                         Usuario_Id = c.Int(),
                     })
                 .PrimaryKey(t => t.Id)
@@ -27,7 +29,7 @@ namespace SistemaDeVendas.Aplicacao.Infraestrutura
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
-                        Nome = c.Binary(),
+                        Nome = c.String(),
                         Login = c.String(),
                         Senha = c.String(),
                         Salt = c.String(),
