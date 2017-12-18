@@ -17,5 +17,7 @@ namespace SistemaDeVendas.Aplicacao.Dto
         public string CodigoSeguranca { get; set; }
         public string Senha { get; set; }
         public string ConfirmarSenha { get; set; }
+        public byte[] NumeroCartaoCript { get; set; }
+        public byte[] CodigoSeguracaCript { get; set; }
     }
 }

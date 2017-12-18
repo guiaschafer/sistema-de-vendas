@@ -24,7 +24,7 @@
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
 
-                    @if (User.IsInRole(PerfilUsuario.Cliente | PerfilUsuario.Administrador))
+                    @if (User.IsInRole(PerfilUsuario.Administrador | PerfilUsuario.Gerente | PerfilUsuario.Vendedor))
                     {
                         <li>@Html.ActionLink("Cliente", "Index", "Cliente")</li>
                     }
@@ -32,9 +32,10 @@
                     {
                         <li>@Html.ActionLink("Produto", "Index", "Produto")</li>
                     }
-
-                    <li>@Html.ActionLink("Usuario", "Index", "Usuario")</li>
-
+                    @if (!User.IsInRole(PerfilUsuario.Cliente))
+                    {
+                        <li>@Html.ActionLink("Usuario", "Index", "Usuario")</li>
+                    }
                 </ul>
 
 
@@ -46,7 +47,17 @@
                                 <i class="glyphicon glyphicon-user"></i>
                             </td>
                             <td class="td-menu" style="line-height: 10px;">
-                                <span style="font-size: 10px; font-weight: bold; ">TEste</span><br />
+                                @if (User.IsInRole(PerfilUsuario.Cliente))
+                                {
+                                    <a class="item-menu" href="@Url.Action("Detalhes", "Cliente")">
+                                        <span style="font-size: 10px; font-weight: bold; ">@User.Identity.Name</span><br />
+                                    </a>
+                                }
+                                else
+                                {
+                                    <span style="font-size: 10px; font-weight: bold; ">@User.Identity.Name</span><br />
+
+                                }
                             </td>
                             <td class="td-menu">
                                 <a class="item-menu" href="@Url.Action("Logoff", "Login", new { Area = "" })">

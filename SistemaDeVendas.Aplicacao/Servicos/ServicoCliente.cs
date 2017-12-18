@@ -51,13 +51,13 @@ namespace SistemaDeVendas.Aplicacao.Servicos
             {
                 throw new Exception(e.Message);
             }
-           
+
         }
 
         public ClienteDto ObterCliente(int id)
         {
             var cliente = contexo.Clientes.Where(c => c.Id == id).FirstOrDefault();
-          
+
             if (cliente != null)
             {
                 var chavePrivada = ChaveAssimetrica.GetKeyPrivateFromContainer(cliente.Cpf);
@@ -72,6 +72,25 @@ namespace SistemaDeVendas.Aplicacao.Servicos
 
             return null;
         }
+
+
+        public ClienteDto ObterClientePorUsuario(int id, string chave)
+        {
+            var cliente = contexo.Clientes.Where(c => c.Usuario.Id == id).FirstOrDefault();
+
+            if (cliente != null)
+            {
+                var clienteDto = Mapper.Map<Cliente, ClienteDto>(cliente);
+
+                clienteDto.NumeroCartao = Encoding.Unicode.GetString(ChaveAssimetrica.RSADecrypt(cliente.NumeroCartao, chave));
+                clienteDto.CodigoSeguranca = Encoding.Unicode.GetString(ChaveAssimetrica.RSADecrypt(cliente.CodigoSeguranca, chave));
+
+                return clienteDto;
+            }
+
+            return null;
+        }
+
         public List<ClienteDto> ObterTodos()
         {
             var clientes = contexo.Clientes.Where(c => 1 == 1).ToList();
@@ -80,6 +99,6 @@ namespace SistemaDeVendas.Aplicacao.Servicos
             return Mapper.Map<List<Cliente>, List<ClienteDto>>(clientes);
         }
 
-      
+
     }
 }

@@ -4,6 +4,7 @@ using System.Web.Mvc;
 using System.Web.Security;
 using SistemaDeVendas.Aplicacao.Dto;
 using SistemaDeVendas.Aplicacao.Servicos;
+using SistemaDeVendas.Aplicacao.Seguranca;
 
 namespace SistemaDeVendas.Portal.Controllers
 {
@@ -63,6 +64,7 @@ namespace SistemaDeVendas.Portal.Controllers
             {
                 var cookie = _servicoAutenticacao.GerarCookieComToken(retorno);
                 Response.Cookies.Add(cookie);
+                Session["Chave"] = ChaveAssimetrica.GetKeyPrivateFromContainer(model.Login);
                 return RedirectToAction("Index", "Home", new { Area = "Vendas" });
             }
 

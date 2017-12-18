@@ -11,7 +11,8 @@ namespace SistemaDeVendas.Aplicacao.Seguranca
 
         public bool IsAuthenticated { get; private set; }
 
-        public string IdUsuario { get; set; }
+        public string IdUsuario { get; private set; }
+
         public string Name { get; private set; }
 
         public Token Token { get; private set; }

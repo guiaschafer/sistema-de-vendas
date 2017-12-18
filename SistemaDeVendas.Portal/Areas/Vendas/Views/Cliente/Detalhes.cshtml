@@ -1,0 +1,65 @@
+﻿@model SistemaDeVendas.Aplicacao.Dto.ClienteDto
+
+@{
+    ViewBag.Title = "Detalhes Clietne";
+}
+
+<div class="page-header">
+   
+    <h3>@ViewBag.Title</h3>
+</div> <!-- Cabeçalho -->
+<div id="alerts"></div>
+
+
+
+    <div class="row">
+        <div class="form-group col-xs-12 col-md-6">
+            <label class="control-label">Nome *</label>
+            @Html.DisplayFor(model => model.Nome, new { htmlAttributes = new { @class = "form-control", @maxlength = "100" } })
+            @Html.ValidationMessageFor(model => model.Nome, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="form-group col-xs-12 col-md-6">
+            <label class="control-label">Sobrenome  *</label>
+            @Html.DisplayFor(model => model.Sobrenome, new { htmlAttributes = new { @class = "form-control", @maxlength = "100" } })
+            @Html.ValidationMessageFor(model => model.Sobrenome, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="form-group col-xs-12 col-md-6">
+            <label class="control-label">CPF *</label>
+            @Html.DisplayFor(model => model.Cpf, new { htmlAttributes = new { @class = "form-control", @maxlength = "100" } })
+            @Html.ValidationMessageFor(model => model.Cpf, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="form-group col-xs-12 col-md-6">
+            <label class="control-label">Telefone *</label>
+            @Html.DisplayFor(model => model.Telefone, new { htmlAttributes = new { @class = "form-control", @maxlength = "100" } })
+            @Html.ValidationMessageFor(model => model.Telefone, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="form-group col-xs-12 col-md-6">
+            <label class="control-label">Número do cartão *</label>
+            @Html.DisplayFor(model => model.NumeroCartao, new { htmlAttributes = new { @class = "form-control", @maxlength = "100" } })
+            @Html.ValidationMessageFor(model => model.NumeroCartao, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="form-group col-xs-12 col-md-6">
+            <label class="control-label">Código de Segurança *</label>
+            @Html.DisplayFor(model => model.CodigoSeguranca, new { htmlAttributes = new { @class = "form-control", @maxlength = "100" } })
+            @Html.ValidationMessageFor(model => model.CodigoSeguranca, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+
+
+  

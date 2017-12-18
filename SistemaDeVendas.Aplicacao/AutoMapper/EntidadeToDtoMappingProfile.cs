@@ -16,7 +16,9 @@ namespace SistemaDeVendas.Aplicacao.AutoMapper
             Mapper.CreateMap<Produto, ProdutoDto>();
             Mapper.CreateMap<Usuario, UsuarioDto>();
             Mapper.CreateMap<Perfil, PerfilDto>();
-            Mapper.CreateMap<Cliente, ClienteDto>();
+            Mapper.CreateMap<Cliente, ClienteDto>()
+                .ForMember(c=> c.CodigoSeguracaCript, op => op.MapFrom(i => i.CodigoSeguranca))
+                .ForMember(c => c.NumeroCartaoCript, op => op.MapFrom(i => i.NumeroCartao));
 
         }
     }

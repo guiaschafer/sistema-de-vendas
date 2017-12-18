@@ -10,7 +10,8 @@ namespace SistemaDeVendas.Aplicacao.Entidades
     {
         public int Id { get; set; }
         public virtual Cliente Cliente { get; set; }
-        public virtual List<ItemPedido> Itens { get; set; }
+        public virtual Produto Item { get; set; }
+        public int Quantidade { get; set; }
         public decimal ValorTotal { get; set; }
     }
 }

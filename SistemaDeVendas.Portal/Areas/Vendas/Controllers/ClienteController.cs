@@ -7,6 +7,7 @@ using SistemaDeVendas.Aplicacao.Dto;
 using SistemaDeVendas.Aplicacao.Entidades.Enum;
 using SistemaDeVendas.Aplicacao.Servicos;
 using SistemaDeVendas.Portal.Util;
+using SistemaDeVendas.Aplicacao.Seguranca;
 
 namespace SistemaDeVendas.Portal.Areas.Vendas.Controllers
 {
@@ -30,6 +31,13 @@ namespace SistemaDeVendas.Portal.Areas.Vendas.Controllers
         public ActionResult Cadastrar()
         {
             return View();
+        }
+
+        public ActionResult Detalhes()
+        {
+            var cliente = _servicoCliente.ObterClientePorUsuario(Int32.Parse((User.Identity as Identidade).IdUsuario), Session["Chave"].ToString());
+
+            return View(cliente);
         }
 
         [HttpPost]
