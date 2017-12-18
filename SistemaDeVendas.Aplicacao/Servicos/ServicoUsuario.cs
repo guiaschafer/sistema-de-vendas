@@ -8,6 +8,7 @@ using SistemaDeVendas.Aplicacao.Dto;
 using SistemaDeVendas.Aplicacao.Entidades;
 using SistemaDeVendas.Aplicacao.Entidades.Enum;
 using SistemaDeVendas.Aplicacao.Infraestrutura;
+using SistemaDeVendas.Aplicacao.Seguranca;
 using SistemaDeVendas.Aplicacao.Util;
 
 namespace SistemaDeVendas.Aplicacao.Servicos
@@ -24,17 +25,28 @@ namespace SistemaDeVendas.Aplicacao.Servicos
             }
 
             var usuario = Mapper.Map<UsuarioDto, Usuario>(usuarioDto);
-
             usuario.Salt = Utils.GetSalt();
             usuario.Senha = Utils.GenerateSHA512String(usuario.Senha + usuario.Salt);
             usuario.Perfis = new List<Perfil>()
             {
                 contexo.Perfis.Where(x => x.Tipo == PerfilUsuario.Cliente).FirstOrDefault()
             };
+
             contexo.Usuarios.Add(usuario);
             contexo.SaveChanges();
+
         }
 
+        public Tuple<string, Usuario> GerarUsuario(Cliente cliente)
+        {
+            var usuario = new Usuario();
+            var senha = Password.Generate();
+            usuario.Nome = cliente.Nome;
+            usuario.Login = cliente.Cpf;
+            usuario.Salt = Utils.GetSalt();
+            usuario.Senha = Utils.GenerateSHA512String(senha + usuario.Salt);
+            return new Tuple<string, Usuario>(senha, usuario);
+        }
         //public UsuarioDto Obter(int id)
         //{
         //    var usuario = contexo.Usuarios.Where(u => u.Id == id).FirstOrDefault();
@@ -42,11 +54,11 @@ namespace SistemaDeVendas.Aplicacao.Servicos
         //    return Mapper.Map<Usuario, UsuarioDto>(usuario);
         //}
 
-        //public List<UsuarioDto> Obtertodos()
-        //{
-        //    var usuario = contexo.Usuarios.ToList();
+        public List<UsuarioDto> Obtertodos()
+        {
+            var usuario = contexo.Usuarios.ToList();
 
-        //    return Mapper.Map<List<Usuario>, List<UsuarioDto>>(usuario);
-        //}
+            return Mapper.Map<List<Usuario>, List<UsuarioDto>>(usuario);
+        }
     }
 }

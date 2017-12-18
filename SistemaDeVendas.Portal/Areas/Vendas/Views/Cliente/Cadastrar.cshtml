@@ -1,0 +1,81 @@
+﻿@model SistemaDeVendas.Aplicacao.Dto.ClienteDto
+
+@{
+    ViewBag.Title = "Cadastrar";
+}
+
+<div class="page-header">
+    <div class="btn-toolbar pull-right">
+
+        <a href="@Url.Action("Index", "Cliente")" class="btn btn-primary">
+            <span class="glyphicon glyphicon-chevron-left"></span>&nbsp;Voltar
+        </a>
+
+    </div>
+    <h3>@ViewBag.Title</h3>
+</div> <!-- Cabeçalho -->
+<div id="alerts"></div>
+
+@using (Html.BeginForm("Cadastrar", "Cliente", FormMethod.Post, new { novalidate = "" }))
+{
+
+    <div class="row">
+        <div class="form-group col-xs-12 col-md-6">
+            <label class="control-label">Nome *</label>
+            @Html.EditorFor(model => model.Nome, new { htmlAttributes = new { @class = "form-control", @maxlength = "100" } })
+            @Html.ValidationMessageFor(model => model.Nome, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="form-group col-xs-12 col-md-6">
+            <label class="control-label">Sobrenome  *</label>
+            @Html.EditorFor(model => model.Sobrenome, new { htmlAttributes = new { @class = "form-control", @maxlength = "100" } })
+            @Html.ValidationMessageFor(model => model.Sobrenome, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="form-group col-xs-12 col-md-6">
+            <label class="control-label">CPF *</label>
+            @Html.EditorFor(model => model.Cpf, new { htmlAttributes = new { @class = "form-control", @maxlength = "100" } })
+            @Html.ValidationMessageFor(model => model.Cpf, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="form-group col-xs-12 col-md-6">
+            <label class="control-label">Telefone *</label>
+            @Html.EditorFor(model => model.Telefone, new { htmlAttributes = new { @class = "form-control", @maxlength = "100" } })
+            @Html.ValidationMessageFor(model => model.Telefone, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="form-group col-xs-12 col-md-6">
+            <label class="control-label">CPF *</label>
+            @Html.EditorFor(model => model.NumeroCartao, new { htmlAttributes = new { @class = "form-control", @maxlength = "100" } })
+            @Html.ValidationMessageFor(model => model.NumeroCartao, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="form-group col-xs-12 col-md-6">
+            <label class="control-label">Código de Segurança *</label>
+            @Html.EditorFor(model => model.CodigoSeguranca, new { htmlAttributes = new { @class = "form-control", @maxlength = "100" } })
+            @Html.ValidationMessageFor(model => model.CodigoSeguranca, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="pull-right col-xs-12 col-sm-4">
+            <br />
+            <label class="d-block hidden-xs col-sm-8">&nbsp;</label>
+            <button type="submit" class="btn btn-success col-xs-12 col-sm-4" style="vertical-align:bottom">
+                <span class="glyphicon glyphicon-ok"></span>&nbsp;Salvar
+            </button>
+        </div> <!-- Botão de ação -->
+    </div>
+
+
+}

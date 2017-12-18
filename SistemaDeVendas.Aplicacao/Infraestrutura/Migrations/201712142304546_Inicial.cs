@@ -27,7 +27,7 @@ namespace SistemaDeVendas.Aplicacao.Infraestrutura
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
-                        Nome = c.String(),
+                        Nome = c.Binary(),
                         Login = c.String(),
                         Senha = c.String(),
                         Salt = c.String(),

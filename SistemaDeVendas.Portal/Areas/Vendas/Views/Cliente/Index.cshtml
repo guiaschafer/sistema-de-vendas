@@ -1,0 +1,33 @@
+﻿@using GridMvc.Html
+@model List<SistemaDeVendas.Aplicacao.Dto.ClienteDto>
+@{
+    ViewBag.Title = "Cliente";
+}
+
+<div class="page-header">
+    <div class="btn-toolbar pull-right">
+        <a href="@Url.Action("Cadastrar")"
+           class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span>Novo</a>
+    </div>
+    <h3>@ViewBag.Title</h3>
+</div>
+<div class="code-cut">
+    @Html.Grid(Model).Columns(columns =>
+    {
+        columns.Add(c => c.Id);
+        columns.Add(c => c.Cpf).Titled("CPF").Filterable(true);
+        columns.Add(c => c.Nome).Titled("Nome").Filterable(true);
+        columns.Add(c => c.Telefone).Titled("Telefone").Filterable(true);
+        columns.Add()
+            .Encoded(false)
+            .Sanitized(false)
+            .SetWidth(30)
+            .RenderValueAs(o => Html.ActionLink("Editar", "Atualizar", new { id = o.Id }));
+        columns.Add()
+            .Encoded(false)
+            .Sanitized(false)
+            .SetWidth(30)
+            .RenderValueAs(o => Html.ActionLink("Remover", "Remover", new { id = o.Id }));
+
+    }).WithPaging(10).Sortable(true)
+</div>  

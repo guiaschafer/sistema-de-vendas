@@ -242,3 +242,7 @@ C:\Users\guilherme.schafer\Documents\sistema-de-vendas\SistemaDeVendas.Portal\bi
 C:\Users\guilherme.schafer\Documents\sistema-de-vendas\SistemaDeVendas.Portal\bin\EntityFramework.xml
 C:\Users\guilherme.schafer\Documents\sistema-de-vendas\SistemaDeVendas.Portal\obj\Debug\SistemaDeVendas.Portal.dll
 C:\Users\guilherme.schafer\Documents\sistema-de-vendas\SistemaDeVendas.Portal\obj\Debug\SistemaDeVendas.Portal.pdb
+C:\Users\Guilherme\Source\Repos\sistema-de-vendas\SistemaDeVendas.Portal\bin\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\Guilherme\Source\Repos\sistema-de-vendas\SistemaDeVendas.Portal\bin\System.IdentityModel.Tokens.Jwt.pdb
+C:\Users\Guilherme\Source\Repos\sistema-de-vendas\SistemaDeVendas.Portal\bin\System.IdentityModel.Tokens.Jwt.xml
+C:\Users\Guilherme\Source\Repos\sistema-de-vendas\SistemaDeVendas.Portal\bin\GridMvc.dll

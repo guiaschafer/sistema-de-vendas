@@ -1,0 +1,68 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Agendamentoss</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @RenderSection("styles", required: false)
+</head>
+<body>
+
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container-fluid siga-menu">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                </button>
+                @*<img class="logo-menu" src="~/Images/logo.jpg" />*@
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    @*<li>@Html.ActionLink("Laboratorio", "Index", "Laboratorio")</li>
+                        <li>@Html.ActionLink("Disciplina", "Index", "Disciplina")</li>
+                        <li>@Html.ActionLink("Agendamento", "Index", "Agendamento")</li>*@
+                    <li>@Html.ActionLink("Usuario", "Index", "Usuario")</li>
+                </ul>
+
+
+
+                <div class="nav navbar-nav navbar-right logoff-menu">
+                    <table class="table-menu">
+                        <tr>
+                            <td class="td-menu td-inicio-menu">
+                                <i class="glyphicon glyphicon-user"></i>
+                            </td>
+                            <td class="td-menu" style="line-height: 10px;">
+                                <span style="font-size: 10px; font-weight: bold; ">TEste</span><br />
+                            </td>
+                            <td class="td-menu">
+                                <a class="item-menu" href="@Url.Action("Logoff", "Login", new { Area = "" })">
+                                <i class="glyphicon glyphicon-log-out"></i>
+                                </a>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container body-content">
+        <BR />
+        <BR />
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - Agendamentos</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

@@ -140,7 +140,7 @@ namespace SistemaDeVendas.Aplicacao.Seguranca
 
         public string GerarJwt()
         {
-            var jwtToken = new JwtSecurityToken("Jequiti",
+            var jwtToken = new JwtSecurityToken("vendas",
                 claims: Claims,
                 notBefore: EmitidoEm,
                 expires: ExpiraEm,
@@ -151,22 +151,13 @@ namespace SistemaDeVendas.Aplicacao.Seguranca
             return handler.WriteToken(jwtToken);
         }
 
-        private string RandomString(int length)
-        {
-            Random random = new Random();
-            const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-            return new string(Enumerable.Repeat(chars, length)
-                .Select(s => s[random.Next(s.Length)]).ToArray());
-        }
         private byte[] GerarChaveAssinatura()
         {
-            //TODO: Temporário!! Utilizar uma chave RSA
             return Encoding.Unicode.GetBytes(Resources.ChaveAssinaturaToken);
         }
 
         private SigningCredentials GerarAssinatura()
         {
-            //TODO: Colocar em outro arquivo essa logica
             var signingKey = new SigningCredentials(
                 new InMemorySymmetricSecurityKey(GerarChaveAssinatura()),
                 "http://www.w3.org/2001/04/xmldsig-more#hmac-sha256",

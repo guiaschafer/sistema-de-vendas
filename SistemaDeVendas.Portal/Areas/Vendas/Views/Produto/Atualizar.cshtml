@@ -1,0 +1,65 @@
+﻿@model SistemaDeVendas.Aplicacao.Dto.ProdutoDto
+
+@{
+    ViewBag.Title = "Cadastrar";
+}
+
+<div class="page-header">
+    <div class="btn-toolbar pull-right">
+
+        <a href="@Url.Action("Index", "Produto")" class="btn btn-primary">
+            <span class="glyphicon glyphicon-chevron-left"></span>&nbsp;Voltar
+        </a>
+
+    </div>
+    <h3>@ViewBag.Title</h3>
+</div> <!-- Cabeçalho -->
+<div id="alerts"></div>
+
+@using (Html.BeginForm("Atualizar", "Produto", FormMethod.Post, new { novalidate = "" }))
+{
+
+    <div class="row">
+        <div class="form-group col-xs-12 col-md-6">
+            <label class="control-label">Código </label>
+            @Html.DisplayFor(model => model.Id, new { htmlAttributes = new { @class = "form-control", @maxlength = "100" } })
+            @Html.ValidationMessageFor(model => model.Descricao, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="form-group col-xs-12 col-md-6">
+            <label class="control-label">Descrição *</label>
+            @Html.EditorFor(model => model.Descricao, new { htmlAttributes = new { @class = "form-control", @maxlength = "100" } })
+            @Html.ValidationMessageFor(model => model.Descricao, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="form-group col-xs-12 col-md-6">
+            <label class="control-label">Unidade de Medida *</label>
+            @Html.EditorFor(model => model.UnidadeMedida, new { htmlAttributes = new { @class = "form-control", @maxlength = "100" } })
+            @Html.ValidationMessageFor(model => model.UnidadeMedida, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="form-group col-xs-12 col-md-6">
+            <label class="control-label">Valor da Unidade *</label>
+            @Html.EditorFor(model => model.ValorUnidade, new { htmlAttributes = new { @class = "form-control", @maxlength = "100" } })
+            @Html.ValidationMessageFor(model => model.ValorUnidade, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="pull-right col-xs-12 col-sm-4">
+            <br />
+            <label class="d-block hidden-xs col-sm-8">&nbsp;</label>
+            <button type="submit" class="btn btn-success col-xs-12 col-sm-4" style="vertical-align:bottom">
+                <span class="glyphicon glyphicon-ok"></span>&nbsp;Salvar
+            </button>
+        </div> <!-- Botão de ação -->
+    </div>
+
+
+}

@@ -24,7 +24,7 @@ namespace SistemaDeVendas.Portal.Util
         public AutorizarAttribute()
         {
             Ativo = true;
-            Perfis = PerfilUsuario.Cliente;
+            Perfis = PerfilUsuario.Administrador;
         }
 
         protected override bool AuthorizeCore(HttpContextBase httpContext)

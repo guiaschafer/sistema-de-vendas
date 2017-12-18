@@ -27,17 +27,19 @@ namespace SistemaDeVendas.Aplicacao.Servicos
                 throw new ArgumentNullException("É necessário informar a senha.");
             }
 
+
             var usuario = contexo.Usuarios.Where(x => x.Login == login.Login).FirstOrDefault();
 
-            var hashSenha = Utils.GenerateSHA512String(login.Senha + usuario.Salt);
-
-            if (hashSenha == usuario.Senha)
+            
+            if (usuario != null)
             {
+                var hashSenha = Utils.GenerateSHA512String(login.Senha + usuario.Salt);
 
-                return usuario;
-
+                if (hashSenha == usuario.Senha)
+                {
+                    return usuario;
+                }
             }
-
             return null;
         }
 

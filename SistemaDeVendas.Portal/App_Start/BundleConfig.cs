@@ -21,11 +21,15 @@ namespace SistemaDeVendas.Portal
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
                       "~/Scripts/bootstrap.js",
+                      "~/Content/layout.css",
                       "~/Scripts/respond.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/site.css"));
+
+            bundles.Add(new StyleBundle("~/bundles/Agendamentos/Styles/Home")
+                .Include("~/Areas/Agendamentos/Content/Home.css"));
         }
     }
 }

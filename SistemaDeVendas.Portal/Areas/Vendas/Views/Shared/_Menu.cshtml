@@ -1,0 +1,46 @@
+﻿@section styles{
+    @Styles.Render("~/bundles/Agendamentos/Styles/Menu")
+}
+
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="@Url.Action("Index", "Home", new {Area = "Administrativo"})">
+                <img class="navbar-brand" src="@Url.Content("~/Images/")" />
+            </a>
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                @*<li>@Html.ActionLink("Laboratorio", "Index", "Laboratorio")</li>
+                <li>@Html.ActionLink("Disciplina", "Index", "Disciplina")</li>
+                <li>@Html.ActionLink("Agendamento", "Index", "Agendamento")</li>
+                <li>@Html.ActionLink("Usuario", "Index", "Usuario")</li>*@
+
+
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li class="menu-header">
+                    <a href="javascript:void(0)" class="dropdown-toggle active" role="button" aria-haspopup="true"
+                       aria-expanded="false" data-toggle="dropdown">
+                        @User.Identity.Name<span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu text-right xs-text-left">
+                        <li>
+                            @Html.ActionLink("Sair", "Logoff", "Login", new { Area = "" }, htmlAttributes:
+                                new { id = "logoffLink" })
+                        </li>
+                    </ul>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+</div>
+
+

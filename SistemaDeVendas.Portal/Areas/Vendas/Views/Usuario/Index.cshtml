@@ -1,0 +1,22 @@
+﻿@using GridMvc.Html
+@model List<SistemaDeVendas.Aplicacao.Dto.UsuarioDto>
+@{
+    ViewBag.Title = "Usuário";
+}
+
+<div class="page-header">
+    <div class="btn-toolbar pull-right">
+        <a href="@Url.Action("Cadastrar")"
+           class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span>Novo</a>
+    </div>
+    <h3>@ViewBag.Title</h3>
+</div>
+<div class="code-cut">  
+    @Html.Grid(Model).Columns(columns =>
+    {
+        columns.Add(c => c.Nome).Titled("Nome").Filterable(true);
+        columns.Add(c => c.Login).Titled("Login").Filterable(true);
+    
+
+}).WithPaging(10).Sortable(true)  
+</div>  

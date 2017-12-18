@@ -5,12 +5,11 @@ using System.Web.Mvc;
 
 namespace SistemaDeVendas.Portal.Controllers
 {
-    [Autorizar(Perfis = PerfilUsuario.Cliente)]
     public class HomeController : Controller
     {
-        public ActionResult Index(UsuarioDto usuario)
+        public ActionResult Index()
         {
-            return View(usuario);
+            return View();
         }
 
         public ActionResult About()

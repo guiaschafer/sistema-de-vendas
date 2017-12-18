@@ -14,5 +14,7 @@ namespace SistemaDeVendas.Aplicacao.Entidades
         public string Cpf { get; set; }
         public string Telefone { get; set; }
         public virtual Usuario Usuario { get; set; }
+        public byte[] NumeroCartao { get; set; }
+        public byte[] CodigoSeguranca { get; set; }
     }
 }

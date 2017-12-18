@@ -1,5 +1,6 @@
 ﻿using SistemaDeVendas.Portal.Models;
 using System.Web.Mvc;
+using System.Web.Security;
 using SistemaDeVendas.Aplicacao.Dto;
 using SistemaDeVendas.Aplicacao.Servicos;
 
@@ -19,6 +20,8 @@ namespace SistemaDeVendas.Portal.Controllers
         // GET: Login
         public ActionResult Index()
         {
+            if (Request.IsAuthenticated)
+                return RedirectToAction("Index", "Home", new { Area = "Vendas" });
             return View();
         }
 
@@ -44,10 +47,17 @@ namespace SistemaDeVendas.Portal.Controllers
             {
                 var cookie = _servicoAutenticacao.GerarCookieComToken(retorno);
                 Response.Cookies.Add(cookie);
-                return RedirectToAction("Index", "Home", retorno);
+                return RedirectToAction("Index", "Home", new { Area = "Vendas" });
             }
 
             return View();
+        }
+
+        [Authorize]
+        public ActionResult Logoff(FormCollection f)
+        {
+            FormsAuthentication.SignOut();
+            return RedirectToAction("Index");
         }
     }
 }
