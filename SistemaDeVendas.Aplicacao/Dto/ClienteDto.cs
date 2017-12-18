@@ -15,5 +15,7 @@ namespace SistemaDeVendas.Aplicacao.Dto
         public string Telefone { get; set; }
         public string NumeroCartao { get; set; }
         public string CodigoSeguranca { get; set; }
+        public string Senha { get; set; }
+        public string ConfirmarSenha { get; set; }
     }
 }

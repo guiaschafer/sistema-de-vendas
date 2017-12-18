@@ -3,6 +3,7 @@ using SistemaDeVendas.Aplicacao.Dto;
 using SistemaDeVendas.Aplicacao.Entidades;
 using SistemaDeVendas.Aplicacao.Infraestrutura;
 using SistemaDeVendas.Aplicacao.Seguranca;
+using SistemaDeVendas.Aplicacao.Util;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,17 +28,30 @@ namespace SistemaDeVendas.Aplicacao.Servicos
                 throw new ArgumentException(nameof(clienteDto));
             }
 
-            var cliente = Mapper.Map<ClienteDto, Cliente>(clienteDto);
-            ChaveAssimetrica.GenKey_SaveInContainer(clienteDto.Cpf);
-            var chavePublica = ChaveAssimetrica.GetKeyPublicFromContainer(clienteDto.Cpf);
-            var usuario = _servicoUsuario.GerarUsuario(cliente);
+            if (Password.VerificarSenha(clienteDto.Senha) < PasswordScore.Strong)
+            {
+                throw new ArgumentException("Senha muito fraca");
+            }
 
-            cliente.NumeroCartao = ChaveAssimetrica.RSAEncrypt(Encoding.Unicode.GetBytes(clienteDto.NumeroCartao), chavePublica);
-            cliente.CodigoSeguranca = ChaveAssimetrica.RSAEncrypt(Encoding.Unicode.GetBytes(clienteDto.CodigoSeguranca), chavePublica);
-            cliente.Usuario = usuario.Item2;
-            contexo.Clientes.Add(cliente);
-            contexo.SaveChanges();
-            return usuario.Item1;
+            try
+            {
+                var cliente = Mapper.Map<ClienteDto, Cliente>(clienteDto);
+                ChaveAssimetrica.GenKey_SaveInContainer(clienteDto.Cpf);
+                var chavePublica = ChaveAssimetrica.GetKeyPublicFromContainer(clienteDto.Cpf);
+                var usuario = _servicoUsuario.GerarUsuario(cliente, clienteDto.Senha);
+
+                cliente.NumeroCartao = ChaveAssimetrica.RSAEncrypt(Encoding.Unicode.GetBytes(clienteDto.NumeroCartao), chavePublica);
+                cliente.CodigoSeguranca = ChaveAssimetrica.RSAEncrypt(Encoding.Unicode.GetBytes(clienteDto.CodigoSeguranca), chavePublica);
+                cliente.Usuario = usuario.Item2;
+                contexo.Clientes.Add(cliente);
+                contexo.SaveChanges();
+                return usuario.Item1;
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+           
         }
 
         public ClienteDto ObterCliente(int id)

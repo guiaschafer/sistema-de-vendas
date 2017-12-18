@@ -24,7 +24,7 @@ namespace SistemaDeVendas.Portal.Util
         public AutorizarAttribute()
         {
             Ativo = true;
-            Perfis = PerfilUsuario.Administrador;
+            Perfis = PerfilUsuario.Publico;
         }
 
         protected override bool AuthorizeCore(HttpContextBase httpContext)
@@ -39,7 +39,7 @@ namespace SistemaDeVendas.Portal.Util
                 return false;
 
             bool acessoPermitido = true;
-            if (Perfis != PerfilUsuario.Administrador)
+            if (Perfis != PerfilUsuario.Publico)
             {
                 acessoPermitido = principal.IsInRole(PerfilUsuario.Administrador | Perfis);
             }

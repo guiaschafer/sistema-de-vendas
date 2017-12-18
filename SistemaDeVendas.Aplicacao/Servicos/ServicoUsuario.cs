@@ -34,7 +34,7 @@ namespace SistemaDeVendas.Aplicacao.Servicos
             usuario.Senha = Utils.GenerateSHA512String(usuario.Senha + usuario.Salt);
             usuario.Perfis = new List<Perfil>()
             {
-                contexo.Perfis.Where(x => x.Tipo == PerfilUsuario.Cliente).FirstOrDefault()
+                contexo.Perfis.Where(x => x.Id == usuarioDto.IdPerfil).FirstOrDefault()
             };
 
             contexo.Usuarios.Add(usuario);
@@ -63,14 +63,18 @@ namespace SistemaDeVendas.Aplicacao.Servicos
 
         //}
 
-        public Tuple<string, Usuario> GerarUsuario(Cliente cliente)
+        public Tuple<string, Usuario> GerarUsuario(Cliente cliente,string senha)
         {
             var usuario = new Usuario();
-            var senha = Password.Generate();
             usuario.Nome = cliente.Nome;
             usuario.Login = cliente.Cpf;
             usuario.Salt = Utils.GetSalt();
             usuario.Senha = Utils.GenerateSHA512String(senha + usuario.Salt);
+            usuario.Perfis = new List<Perfil>()
+            {
+                contexo.Perfis.Where(x => x.Tipo == PerfilUsuario.Cliente).FirstOrDefault()
+            };
+
             return new Tuple<string, Usuario>(senha, usuario);
         }
 

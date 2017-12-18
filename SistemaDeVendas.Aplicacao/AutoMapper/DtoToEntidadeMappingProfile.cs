@@ -13,6 +13,8 @@ namespace SistemaDeVendas.Aplicacao.AutoMapper
 
         protected override void Configure()
         {
+            Mapper.CreateMap<ProdutoDto, Produto>();
+
             Mapper.CreateMap<UsuarioDto, Usuario>();
             Mapper.CreateMap<ClienteDto, Cliente>()
                 .ForMember(c => c.NumeroCartao, op => op.Ignore())

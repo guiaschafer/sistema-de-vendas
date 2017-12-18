@@ -14,5 +14,7 @@ namespace SistemaDeVendas.Aplicacao.Entidades.Enum
         Gerente = 2,
         [Description("Vendedor")]
         Vendedor = 4,
+        [Description("Publico")]
+        Publico = 8
     }
 }

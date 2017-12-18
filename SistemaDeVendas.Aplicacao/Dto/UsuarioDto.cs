@@ -13,7 +13,9 @@ namespace SistemaDeVendas.Aplicacao.Dto
         public string Login { get; set; }
         public string Senha { get; set; }
         public string ConfirmarSenha { get; set; }
-        public List<PerfilDto> Perfis { get; set; }
+        public int IdPerfil { get; set; }
+
+
         
         //public virtual ICollection<PerfilDto> Perfis { get; set; }
     }

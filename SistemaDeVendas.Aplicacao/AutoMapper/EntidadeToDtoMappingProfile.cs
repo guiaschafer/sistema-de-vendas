@@ -13,6 +13,7 @@ namespace SistemaDeVendas.Aplicacao.AutoMapper
 
         protected override void Configure()
         {
+            Mapper.CreateMap<Produto, ProdutoDto>();
             Mapper.CreateMap<Usuario, UsuarioDto>();
             Mapper.CreateMap<Perfil, PerfilDto>();
             Mapper.CreateMap<Cliente, ClienteDto>();

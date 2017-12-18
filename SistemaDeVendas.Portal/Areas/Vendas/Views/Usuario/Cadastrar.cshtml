@@ -27,6 +27,12 @@
 </div> <!-- Cabeçalho -->
 @using (Html.BeginForm("Cadastrar", "Usuario", FormMethod.Post, new { novalidate = "" }))
 {
+    if (TempData["Erro"] != null)
+    {
+        <div class="form-group">
+            <div class="alert alert-danger" role="alert"><span class="glyphicon glyphicon-exclamation-sign"></span>&nbsp;@TempData["Erro"]</div>
+        </div>
+    }
 
     <div class="row">
         <div class="form-group col-xs-12 col-md-6">
@@ -35,6 +41,15 @@
             @Html.ValidationMessageFor(model => model.Nome, "", new { @class = "text-danger" })
         </div>
     </div>
+
+    <div class="row">
+        <div class="form-group col-xs-12 col-md-6">
+            <label class="control-label">Disciplina</label>
+            @Html.DropDownListFor(model => model.IdPerfil, new SelectList(ViewBag.SelectListPerfil, "Id", "Nome", 2), new { htmlAttributes = new { @class = "form-control", @maxlength = "100" } })
+            @Html.ValidationMessageFor(model => model.IdPerfil, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
 
     <div class="row">
         <div class="form-group col-xs-12 col-md-6">

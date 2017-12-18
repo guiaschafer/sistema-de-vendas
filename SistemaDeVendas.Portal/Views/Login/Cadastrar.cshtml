@@ -1,4 +1,4 @@
-﻿@model SistemaDeVendas.Aplicacao.Dto.UsuarioDto
+﻿@model SistemaDeVendas.Aplicacao.Dto.ClienteDto
 @{
     ViewBag.Title = "Cadastrar";
 }
@@ -12,30 +12,62 @@
        <div class="form-group">
            <div class="alert alert-danger" role="alert"><span class="glyphicon glyphicon-exclamation-sign"></span>&nbsp;@TempData["Erro"]</div>
        </div>
-   }
+    }
 
     <div class="row">
         <div class="form-group col-xs-12 col-md-6">
             <label class="control-label">Nome *</label>
-
-            @Html.EditorFor(model => model.Nome, new {htmlAttributes = new {@class = "form-control", @maxlength = "100"}})
-            @Html.ValidationMessageFor(model => model.Nome, "", new {@class = "text-danger"})
+            @Html.EditorFor(model => model.Nome, new { htmlAttributes = new { @class = "form-control", @maxlength = "100" } })
+            @Html.ValidationMessageFor(model => model.Nome, "", new { @class = "text-danger" })
         </div>
     </div>
 
     <div class="row">
         <div class="form-group col-xs-12 col-md-6">
-            <label class="control-label">Login *</label>
-            @Html.EditorFor(model => model.Login, new {htmlAttributes = new {@class = "form-control", @maxlength = "100"}})
-            @Html.ValidationMessageFor(model => model.Login, "", new {@class = "text-danger"})
+            <label class="control-label">Sobrenome  *</label>
+            @Html.EditorFor(model => model.Sobrenome, new { htmlAttributes = new { @class = "form-control", @maxlength = "100" } })
+            @Html.ValidationMessageFor(model => model.Sobrenome, "", new { @class = "text-danger" })
         </div>
     </div>
+
+    <div class="row">
+        <div class="form-group col-xs-12 col-md-6">
+            <label class="control-label">CPF *</label>
+            @Html.EditorFor(model => model.Cpf, new { htmlAttributes = new { @class = "form-control", @maxlength = "100" } })
+            @Html.ValidationMessageFor(model => model.Cpf, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="form-group col-xs-12 col-md-6">
+            <label class="control-label">Telefone *</label>
+            @Html.EditorFor(model => model.Telefone, new { htmlAttributes = new { @class = "form-control", @maxlength = "100" } })
+            @Html.ValidationMessageFor(model => model.Telefone, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="form-group col-xs-12 col-md-6">
+            <label class="control-label">Número do cartão *</label>
+            @Html.EditorFor(model => model.NumeroCartao, new { htmlAttributes = new { @class = "form-control", @maxlength = "100" } })
+            @Html.ValidationMessageFor(model => model.NumeroCartao, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="form-group col-xs-12 col-md-6">
+            <label class="control-label">Código de Segurança *</label>
+            @Html.EditorFor(model => model.CodigoSeguranca, new { htmlAttributes = new { @class = "form-control", @maxlength = "100" } })
+            @Html.ValidationMessageFor(model => model.CodigoSeguranca, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
 
     <div class="row">
         <div class="form-group col-xs-12 col-md-6">
             <label class="control-label">Senha *</label>
             @Html.PasswordFor(model => model.Senha, new {@class = "form-control ", @maxlength = "100"})
-            @Html.ValidationMessageFor(model => model.Login, "", new {@class = "text-danger"})
+            @Html.ValidationMessageFor(model => model.Senha, "", new {@class = "text-danger"})
         </div>
     </div>
 

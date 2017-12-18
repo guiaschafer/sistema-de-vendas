@@ -32,7 +32,6 @@ namespace SistemaDeVendas.Portal.Areas.Vendas.Controllers
             return View();
         }
 
-
         [HttpPost]
         public ActionResult Cadastrar(ClienteDto model)
         {

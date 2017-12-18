@@ -67,6 +67,24 @@
         </div>
     </div>
 
+
+    <div class="row">
+        <div class="form-group col-xs-12 col-md-6">
+            <label class="control-label">Senha *</label>
+            @Html.PasswordFor(model => model.Senha, new { @class = "form-control ", @maxlength = "100" })
+            @Html.ValidationMessageFor(model => model.Senha, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="form-group col-xs-12 col-md-6">
+            <label class="control-label">Confirmar Senha *</label>
+            @Html.PasswordFor(model => model.ConfirmarSenha, new { @class = "form-control", @maxlength = "100" })
+            @Html.ValidationMessageFor(model => model.ConfirmarSenha, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
     <div class="row">
         <div class="pull-right col-xs-12 col-sm-4">
             <br />

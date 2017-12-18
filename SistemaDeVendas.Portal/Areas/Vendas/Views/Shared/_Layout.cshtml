@@ -32,10 +32,9 @@
                     {
                         <li>@Html.ActionLink("Produto", "Index", "Produto")</li>
                     }
-                    @if (User.IsInRole(PerfilUsuario.Administrador))
-                    {
-                        <li>@Html.ActionLink("Usuario", "Index", "Usuario")</li>
-                    }
+
+                    <li>@Html.ActionLink("Usuario", "Index", "Usuario")</li>
+
                 </ul>
 
 
@@ -68,7 +67,7 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - Agendamentos</p>
+            <p>&copy; @DateTime.Now.Year - Vendas</p>
         </footer>
     </div>
 

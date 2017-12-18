@@ -139,6 +139,8 @@
     <Compile Include="Seguranca\Token.cs" />
     <Compile Include="Servicos\ServicoAutenticacao.cs" />
     <Compile Include="Servicos\ServicoCliente.cs" />
+    <Compile Include="Servicos\ServicoPerfil.cs" />
+    <Compile Include="Servicos\ServicoProduto.cs" />
     <Compile Include="Servicos\ServicoUsuario.cs" />
     <Compile Include="Util\Password.cs" />
     <Compile Include="Util\Utils.cs" />

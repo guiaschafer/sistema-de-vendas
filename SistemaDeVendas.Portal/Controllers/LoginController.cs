@@ -11,11 +11,13 @@ namespace SistemaDeVendas.Portal.Controllers
     {
         public ServicoUsuario _servicoUsuario;
         public ServicoAutenticacao _servicoAutenticacao;
+        public ServicoCliente _servicoCliente;
 
-        public LoginController(ServicoUsuario servicoUsuario, ServicoAutenticacao servicoAutenticacao)
+        public LoginController(ServicoUsuario servicoUsuario, ServicoAutenticacao servicoAutenticacao, ServicoCliente servicoCliente)
         {
             _servicoUsuario = servicoUsuario;
             _servicoAutenticacao = servicoAutenticacao;
+            _servicoCliente = servicoCliente;
         }
 
         // GET: Login
@@ -32,16 +34,21 @@ namespace SistemaDeVendas.Portal.Controllers
         }
 
         [HttpPost]
-        public ActionResult Cadastrar(UsuarioDto usuario)
+        public ActionResult Cadastrar(ClienteDto cliente)
         {
             try
             {
-                _servicoUsuario.Cadastrar(usuario);
+                if(cliente.Senha != cliente.ConfirmarSenha)
+                {
+                    TempData["Erro"] = "Senhas não conferem";
+                    return View("Cadastrar", cliente);
+                }
+                _servicoCliente.Cadastrar(cliente);
             }
             catch (Exception e)
             {
                 TempData["Erro"] = e.Message;
-                return View("Cadastrar", usuario);
+                return View(cliente);
             }
 
             return View("Index");

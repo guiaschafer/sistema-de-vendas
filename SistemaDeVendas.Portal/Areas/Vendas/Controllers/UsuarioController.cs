@@ -10,13 +10,15 @@ using SistemaDeVendas.Portal.Util;
 
 namespace SistemaDeVendas.Portal.Areas.Vendas.Controllers
 {
-    [Autorizar(Perfis = PerfilUsuario.Vendedor)]
+    [Autorizar]
     public class UsuarioController : Controller
     {
         private readonly ServicoUsuario _servicoUsuario;
-        public UsuarioController(ServicoUsuario servicoUsuario)
+        private readonly ServicoPerfil _servicoPerfil;
+        public UsuarioController(ServicoUsuario servicoUsuario, ServicoPerfil servicoPerfil)
         {
             _servicoUsuario = servicoUsuario;
+            _servicoPerfil = servicoPerfil;
         }
 
         // GET: Vendas/Usuario
@@ -29,31 +31,29 @@ namespace SistemaDeVendas.Portal.Areas.Vendas.Controllers
             }
             return View(lista);
         }
-
+        
         public ActionResult Cadastrar()
         {
+            
+            ViewBag.SelectListPerfil = _servicoPerfil.ObterTodos();
             return View();
         }
-
-        public ActionResult Atualizar(int id)
-        {
-            var usuario = _servicoUsuario.Obter(id);
-            return View(usuario);
-        }
-
+        
         [HttpPost]
         public ActionResult Cadastrar(UsuarioDto model)
         {
-            _servicoUsuario.Cadastrar(model);
-            return View("Index");
+            try
+            {
+                _servicoUsuario.Cadastrar(model);
+                return RedirectToAction("Index");
+            }
+            catch (Exception e)
+            {
+                TempData["Erro"] = e.Message;
+                return View(model);
+            }
+           
         }
 
-
-        //[HttpPost]
-        //public ActionResult Atualizar(UsuarioDto model)
-        //{
-        //    _servicoUsuario.Cadastrar(model);
-        //    return View("Index");
-        //}
     }
 }
