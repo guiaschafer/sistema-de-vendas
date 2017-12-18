@@ -24,12 +24,7 @@ namespace SistemaDeVendas.Aplicacao.Servicos
                 throw new ArgumentException(nameof(usuarioDto));
             }
 
-            //if (Password.VerificarSenha(usuarioDto.Senha) < PasswordScore.Strong)
-            //{
-            //    throw new ArgumentException("Senha muito fraca");
-            //}
-
-            if (Password.IsPasswordStrong(usuarioDto.Senha))
+            if (Password.VerificarSenha(usuarioDto.Senha) < PasswordScore.Strong)
             {
                 throw new ArgumentException("Senha muito fraca");
             }
@@ -47,6 +42,27 @@ namespace SistemaDeVendas.Aplicacao.Servicos
 
         }
 
+        //public void Atualizar(UsuarioDto usuarioDto)
+        //{
+        //    if (usuarioDto == null)
+        //    {
+        //        throw new ArgumentException(nameof(usuarioDto));
+        //    }
+
+        //    var usuario = contexo.Usuarios.FirstOrDefault(u => u.Id == usuarioDto.Id);
+        //    usuario.Nome = 
+        //    usuario.Salt = Utils.GetSalt();
+        //    usuario.Senha = Utils.GenerateSHA512String(usuario.Senha + usuario.Salt);
+        //    usuario.Perfis = new List<Perfil>()
+        //    {
+        //        contexo.Perfis.Where(x => x.Tipo == PerfilUsuario.Cliente).FirstOrDefault()
+        //    };
+
+        //    contexo.Usuarios.Add(usuario);
+        //    contexo.SaveChanges();
+
+        //}
+
         public Tuple<string, Usuario> GerarUsuario(Cliente cliente)
         {
             var usuario = new Usuario();
@@ -57,12 +73,14 @@ namespace SistemaDeVendas.Aplicacao.Servicos
             usuario.Senha = Utils.GenerateSHA512String(senha + usuario.Salt);
             return new Tuple<string, Usuario>(senha, usuario);
         }
-        //public UsuarioDto Obter(int id)
-        //{
-        //    var usuario = contexo.Usuarios.Where(u => u.Id == id).FirstOrDefault();
 
-        //    return Mapper.Map<Usuario, UsuarioDto>(usuario);
-        //}
+        public UsuarioDto Obter(int id)
+        {
+            var usuario = contexo.Usuarios.Where(u => u.Id == id).FirstOrDefault();
+
+            return Mapper.Map<Usuario, UsuarioDto>(usuario);
+        }
+
 
         public List<UsuarioDto> Obtertodos()
         {

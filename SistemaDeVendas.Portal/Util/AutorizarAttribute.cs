@@ -47,5 +47,6 @@ namespace SistemaDeVendas.Portal.Util
             //TODO: Validar a existencia do usuario
             return ((Identidade)principal.Identity).Token.Valido && acessoPermitido;
         }
+
     }
 }

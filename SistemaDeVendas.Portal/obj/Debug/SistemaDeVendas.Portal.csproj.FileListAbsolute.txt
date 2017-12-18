@@ -246,3 +246,4 @@ C:\Users\Guilherme\Source\Repos\sistema-de-vendas\SistemaDeVendas.Portal\bin\Sys
 C:\Users\Guilherme\Source\Repos\sistema-de-vendas\SistemaDeVendas.Portal\bin\System.IdentityModel.Tokens.Jwt.pdb
 C:\Users\Guilherme\Source\Repos\sistema-de-vendas\SistemaDeVendas.Portal\bin\System.IdentityModel.Tokens.Jwt.xml
 C:\Users\Guilherme\Source\Repos\sistema-de-vendas\SistemaDeVendas.Portal\bin\GridMvc.dll
+C:\Users\guilherme.schafer\Documents\sistema-de-vendas\SistemaDeVendas.Portal\bin\GridMvc.dll

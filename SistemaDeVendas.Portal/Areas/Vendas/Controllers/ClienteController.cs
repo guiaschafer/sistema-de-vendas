@@ -10,7 +10,7 @@ using SistemaDeVendas.Portal.Util;
 
 namespace SistemaDeVendas.Portal.Areas.Vendas.Controllers
 {
-    //[Autorizar(Perfis = PerfilUsuario.Cliente)]
+    [Autorizar(Perfis = PerfilUsuario.Cliente)]
     public class ClienteController : Controller
     {
         private readonly ServicoCliente _servicoCliente;
@@ -23,10 +23,8 @@ namespace SistemaDeVendas.Portal.Areas.Vendas.Controllers
 
         public ActionResult Index()
         {
-
             var clientes = _servicoCliente.ObterTodos();
             return View(clientes);
-
         }
 
         public ActionResult Cadastrar()
@@ -38,15 +36,22 @@ namespace SistemaDeVendas.Portal.Areas.Vendas.Controllers
         [HttpPost]
         public ActionResult Cadastrar(ClienteDto model)
         {
+
             _servicoCliente.Cadastrar(model);
             return View();
         }
 
        
-        public ActionResult Atualizar(int  id)
-        {
-            var cliente = _servicoCliente.ObterCliente(id);
-            return View("Atualizar",cliente);
+        public ActionResult Atualizar(int id)
+        {            
+            var cliente = _servicoCliente.ObterCliente(id);      
+            
+            if(cliente == null)
+            {
+                return View("Index");
+            }
+
+            return View(cliente);
         }
     }
 }

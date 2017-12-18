@@ -43,10 +43,11 @@ namespace SistemaDeVendas.Aplicacao.Servicos
         public ClienteDto ObterCliente(int id)
         {
             var cliente = contexo.Clientes.Where(c => c.Id == id).FirstOrDefault();
-            var chavePrivada = ChaveAssimetrica.GetKeyPrivateFromContainer(cliente.Cpf);
-
+          
             if (cliente != null)
             {
+                var chavePrivada = ChaveAssimetrica.GetKeyPrivateFromContainer(cliente.Cpf);
+
                 var clienteDto = Mapper.Map<Cliente, ClienteDto>(cliente);
 
                 clienteDto.NumeroCartao = Encoding.Unicode.GetString(ChaveAssimetrica.RSADecrypt(cliente.NumeroCartao, chavePrivada));
@@ -64,5 +65,7 @@ namespace SistemaDeVendas.Aplicacao.Servicos
 
             return Mapper.Map<List<Cliente>, List<ClienteDto>>(clientes);
         }
+
+      
     }
 }

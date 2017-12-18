@@ -133,6 +133,7 @@
     <Compile Include="Seguranca\ChaveAssimetrica.cs" />
     <Compile Include="Seguranca\Claims.cs" />
     <Compile Include="Seguranca\Identidade.cs" />
+    <Compile Include="Seguranca\IPrincipalExtensions.cs" />
     <Compile Include="Seguranca\Principal.cs" />
     <Compile Include="Seguranca\Senha.cs" />
     <Compile Include="Seguranca\Token.cs" />

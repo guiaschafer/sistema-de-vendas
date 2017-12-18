@@ -11,6 +11,7 @@ namespace SistemaDeVendas.Aplicacao.Seguranca
 
         public bool IsAuthenticated { get; private set; }
 
+        public string IdUsuario { get; set; }
         public string Name { get; private set; }
 
         public Token Token { get; private set; }
@@ -29,8 +30,11 @@ namespace SistemaDeVendas.Aplicacao.Seguranca
             Token = token;
             IsAuthenticated = token.Valido;
             
+            IdUsuario = token.Claims
+                .FirstOrDefault(c => c.Type.Equals(Claims.Id, StringComparison.OrdinalIgnoreCase))?.Value;
             Name = token.Claims
                 .FirstOrDefault(c => c.Type.Equals(Claims.Nome, StringComparison.OrdinalIgnoreCase))?.Value;
+       
         }
     }
 }

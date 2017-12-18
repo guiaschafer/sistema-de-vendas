@@ -10,7 +10,7 @@ using SistemaDeVendas.Portal.Util;
 
 namespace SistemaDeVendas.Portal.Areas.Vendas.Controllers
 {
-    //[Autorizar(Perfis = PerfilUsuario.Vendedor)]
+    [Autorizar(Perfis = PerfilUsuario.Vendedor)]
     public class UsuarioController : Controller
     {
         private readonly ServicoUsuario _servicoUsuario;
@@ -35,11 +35,25 @@ namespace SistemaDeVendas.Portal.Areas.Vendas.Controllers
             return View();
         }
 
+        public ActionResult Atualizar(int id)
+        {
+            var usuario = _servicoUsuario.Obter(id);
+            return View(usuario);
+        }
+
         [HttpPost]
         public ActionResult Cadastrar(UsuarioDto model)
         {
             _servicoUsuario.Cadastrar(model);
             return View("Index");
         }
+
+
+        //[HttpPost]
+        //public ActionResult Atualizar(UsuarioDto model)
+        //{
+        //    _servicoUsuario.Cadastrar(model);
+        //    return View("Index");
+        //}
     }
 }

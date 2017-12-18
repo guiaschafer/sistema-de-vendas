@@ -147,12 +147,11 @@ namespace SistemaDeVendas.Aplicacao.Util
                 pontuacao++;
             if (senha.Length >= 12)
                 pontuacao++;
-            if (Regex.Match(senha, @"/\d+/", RegexOptions.ECMAScript).Success)
+            if (Regex.IsMatch(senha, @"[0-9]+(\.[0-9][0-9]?)?", RegexOptions.ECMAScript))   //number only //"^\d+$" if you need to match more than one digit.
                 pontuacao++;
-            if (Regex.Match(senha, @"/[a-z]/", RegexOptions.ECMAScript).Success &&
-                Regex.Match(senha, @"/[A-Z]/", RegexOptions.ECMAScript).Success)
+            if (Regex.IsMatch(senha, @"^(?=.*[a-z])(?=.*[A-Z]).+$", RegexOptions.ECMAScript)) //both, lower and upper case
                 pontuacao++;
-            if (Regex.Match(senha, @"/.[!,@,#,$,%,^,&,*,?,_,~,-,£,(,)]/", RegexOptions.ECMAScript).Success)
+            if (Regex.IsMatch(senha, @"[!,@,#,$,%,^,&,*,?,_,~,-,£,(,)]", RegexOptions.ECMAScript)) //^[A-Z]+$
                 pontuacao++;
 
             return (PasswordScore)pontuacao;

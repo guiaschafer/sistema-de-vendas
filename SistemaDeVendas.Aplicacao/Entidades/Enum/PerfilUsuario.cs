@@ -1,7 +1,9 @@
-﻿using System.ComponentModel;
+﻿using System;
+using System.ComponentModel;
 
 namespace SistemaDeVendas.Aplicacao.Entidades.Enum
 {
+    [Flags]
     public enum PerfilUsuario
     {
         [Description("Administrador")]
@@ -11,6 +13,6 @@ namespace SistemaDeVendas.Aplicacao.Entidades.Enum
         [Description("Gerente")]
         Gerente = 2,
         [Description("Vendedor")]
-        Vendedor = 3,
+        Vendedor = 4,
     }
 }
